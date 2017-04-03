@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  hero = 'windstorm';
+  hero: Hero = {
+    id:1,
+    name: 'windstrom'
+  }
 }
 
 export class Hero{
-
+  id: number;
+  name: string;
 }
