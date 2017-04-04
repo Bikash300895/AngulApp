@@ -1,5 +1,5 @@
 import {Component, Input } from '@angular/core';
-import {Hero} from "./hero";
+import {Hero} from "../Classes/hero";
 
 @Component({
   selector:'hero-deatil',
