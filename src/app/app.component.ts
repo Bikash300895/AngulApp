@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import {Hero} from "./Components/hero";
+import {HeroDetailComponent} from "./Components/hero-detail.component";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-
+  providers: [HeroDetailComponent]
 })
 export class AppComponent {
   public title: string;
@@ -31,11 +33,5 @@ export class AppComponent {
 
   onSelect(hero: Hero): void{
     this.selectedHero = hero;
-    console.log(this.selectedHero);
   }
-}
-
-export class Hero{
-  id: number;
-  name: string;
 }
