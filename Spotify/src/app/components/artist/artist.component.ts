@@ -5,7 +5,8 @@ import {SpotifyService} from "../../services/spotify.service";
 @Component({
   selector: 'artist',
   templateUrl: './artist.component.html',
-  styleUrls: ['./artist.component.css']
+  styleUrls: ['./artist.component.css'],
+  providers: [SpotifyService]
 })
 export class ArtistComponent implements OnInit{
   ngOnInit(): void {
@@ -15,8 +16,9 @@ export class ArtistComponent implements OnInit{
         this._spotifyService.getArtist(id)
           .subscribe(artist=> {
             this.artist = artist;
-          })
-      })
+            console.log(this.artist);
+          });
+      });
   }
   id: string;
   artist: any;
