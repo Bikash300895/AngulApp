@@ -10,17 +10,17 @@ import {Artist} from "../../models/artist";
 })
 export class SearchComponent {
   searchStr: string;
-  searchRes: Artist[];
+  searchRes: any;
 
   constructor(private _spotifyService: SpotifyService){
 
   }
 
   searchMusic(){
-    console.log(this.searchStr);
     this._spotifyService.searchMusic(this.searchStr)
       .subscribe(res => {
-        console.log(res);
+        this.searchRes = res.artists.items;
+        console.log(this.searchRes);
       })
   }
 }
