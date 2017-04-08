@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {GithubService} from '../services/github.services';
 
 @Component({
   selector: 'profile',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
   title = 'app works!';
+  constructor(private _githubService: GithubService){
+    this._githubService.getUser().subscribe(user => {
+      console.log(user);
+    });
+  }
 }

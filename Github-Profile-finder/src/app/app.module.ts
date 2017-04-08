@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {ProfileComponent} from 'app/components/profile.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent, ProfileComponent
