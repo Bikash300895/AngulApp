@@ -1,10 +1,10 @@
-import { SposifyPage } from './app.po';
+import { SpotifyPage } from './app.po';
 
-describe('sposify App', () => {
-  let page: SposifyPage;
+describe('spotify App', () => {
+  let page: SpotifyPage;
 
   beforeEach(() => {
-    page = new SposifyPage();
+    page = new SpotifyPage();
   });
 
   it('should display message saying app works', () => {
