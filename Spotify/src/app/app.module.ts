@@ -9,10 +9,11 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {AboutComponent} from "./components/about/about.component";
 import {SearchComponent} from "./components/search/search.component";
 import {routing} from "./app.routing";
+import {ArtistComponent} from "./components/artist/artist.component";
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, AboutComponent, NavbarComponent, SearchComponent
+    AppComponent, HomeComponent, AboutComponent, NavbarComponent, SearchComponent, ArtistComponent
   ],
   imports: [
     BrowserModule,
