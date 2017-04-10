@@ -38,4 +38,8 @@ export class AppComponent implements OnInit{
     this.appState = state;
   }
 
+  filterCategory(category){
+    console.log(category);
+  }
+
 }
