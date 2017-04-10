@@ -15,6 +15,22 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="large-6 columns">
+    <p></p>
+    <button class="button">Add Business</button>
+  </div>
+  <div class="large-6 columns">
+    <label>
+      Filter by category
+      <select>
+        <option value="0">Select</option>
+        <option *ngFor="let cat of categories" value="{{cat.name}}">{{cat.name}}</option>
+      </select>
+    </label>
+  </div>
+</div>
+
 <div *ngIf="appState == 'extand'">
   <div class="row">
     <div class="large-12 columns">
