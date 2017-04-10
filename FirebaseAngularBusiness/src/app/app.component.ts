@@ -8,11 +8,21 @@ import {FirebaseService} from "./services/firebase.services";
   styleUrls: ['./app.component.css'],
   providers: [FirebaseService]
 })
+
 export class AppComponent implements OnInit{
   business: any;
   categories: any;
   appState: string;
   activeKey: string;
+
+  active_category: string;
+  active_city: string;
+  active_company: string;
+  active_description: string;
+  active_email: string;
+  active_phone: string;
+  active_state: string;
+  active_zipcode: string;
 
   constructor(private _firebaseService: FirebaseService){
 
@@ -30,9 +40,9 @@ export class AppComponent implements OnInit{
   }
 
   changeState(state, key:null){
-    console.log('changing state to : '+state)
+    console.log('changing state to : '+state);
     if(key){
-      console.log('changing key to : ' + key)
+      console.log('changing key to : ' + key);
       this.activeKey = key;
     }
     this.appState = state;
@@ -69,6 +79,19 @@ export class AppComponent implements OnInit{
 
     this._firebaseService.addBusiness(newBusiness);
     this.changeState('default', null);
+  }
+
+  showEdit(business){
+      this.changeState('edit', business.$key);
+      this.active_category =      business.category;
+      this.active_category =       business.category;
+      this.active_city =           business.city;
+      this.active_company =        business.company;
+      this.active_description =    business.description;
+      this.active_email =          business.email;
+      this.active_phone =          business.phone;
+      this.active_state =          business.state;
+      this.active_zipcode =        business.zipcode;
   }
 
 }

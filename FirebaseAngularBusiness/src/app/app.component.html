@@ -30,7 +30,7 @@
     </label>
   </div>
 </div>
-
+<!--Add form-->
 <div *ngIf="appState=='add'" class="row">
   <div class="large-12 columns">
     <h3>Add business</h3>
@@ -118,6 +118,85 @@
   </div>
 </div>
 
+<!--Edit form-->
+<div *ngIf="appState=='edit'" class="row">
+  <div class="large-12 columns">
+    <h3>Edit business</h3>
+    <form (submit)="updateBusiness()">
+
+      <div class="row">
+        <div class="large-6 columns">
+          <label>
+            Company
+            <input type="text" [(ngModel)]="active_company" name="active_company" placeholder="Company name">
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>
+            Category
+            <select  [(ngModel)]="active_category" name="active_category" >
+              <option value="0"></option>
+              <option *ngFor="let cat of categories" value="{{cat.name}}">{{cat.name}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <label>
+            City
+            <input type="text" placeholder="Company name" [(ngModel)]="active_city" name="active_city"  #city>
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>
+            description
+            <input type="text" placeholder="Company name"  [(ngModel)]="active_description" name="active_description"  #description>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <label>
+            email
+            <input type="text" placeholder="Company name" [(ngModel)]="active_email" name="active_email"  #email>
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>
+            Phone
+            <input type="text" placeholder="Company name"  [(ngModel)]="active_phone" name="active_phone" #phone>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <label>
+            State
+            <input type="text" placeholder="Company name" [(ngModel)]="active_state" name="active_state"  #state>
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>
+            zipcode
+            <input type="text" placeholder="Company name" [(ngModel)]="active_zipcode" name="active_zipcode"  #zipcode>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <input type="submit" class="button" value="Submit">
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
 <div *ngIf="appState == 'extand'">
   <div class="row">
     <div class="large-12 columns">
@@ -166,7 +245,7 @@
             <td>{{business.phone}}</td>
             <td>
               <button (click)="changeState('extand', business.$key)" class="button">More</button>
-              <button class="button secondary">Edit</button>
+              <button (click)="showEdit(business)" class="button secondary">Edit</button>
               <button class="button alert">Delete</button>
             </td>
 
