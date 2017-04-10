@@ -94,4 +94,20 @@ export class AppComponent implements OnInit{
       this.active_zipcode =        business.zipcode;
   }
 
+  updateBusiness(){
+    var updatedBusiness = {
+      category: this.active_category,
+      city: this.active_city,
+      company: this.active_company,
+      description: this.active_description,
+      email: this.active_email,
+      phone: this.active_phone,
+      state: this.active_state,
+      zipcode: this.active_zipcode,
+    }
+
+    this._firebaseService.updateBusiness(this.activeKey, updatedBusiness);
+    this.changeState('default', null);
+  }
+
 }
