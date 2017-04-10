@@ -20,4 +20,8 @@ export class FirebaseService {
   getCategories(){
     return this.categories;
   }
+
+  addBusiness(newBusiness){
+    return this.business.push(newBusiness);
+  }
 }

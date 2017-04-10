@@ -29,7 +29,7 @@ export class AppComponent implements OnInit{
 
   }
 
-  changeState(state, key){
+  changeState(state, key:null){
     console.log('changing state to : '+state)
     if(key){
       console.log('changing key to : ' + key)
@@ -40,6 +40,36 @@ export class AppComponent implements OnInit{
 
   filterCategory(category){
     console.log(category);
+  }
+
+  addBusiness(
+    category: string,
+    city: string,
+    company: string,
+    description: string,
+    email: string,
+    phone: string,
+    state: string,
+    zipcode: string,
+  ){
+
+    var created_at = new Date().toString();
+
+    var newBusiness = {
+      category: category,
+      city: city,
+      company: company,
+      description: description,
+      email: email,
+      phone: phone,
+      state: state,
+      zipcode: zipcode,
+      created_at: created_at
+    }
+
+    this._firebaseService.addBusiness(newBusiness);
+
+    this.changeState('default', null);
   }
 
 }
