@@ -11,6 +11,8 @@ import {FirebaseService} from "./services/firebase.services";
 export class AppComponent implements OnInit{
   business: any;
   categories: any;
+  appState: string;
+  activeKey: string;
 
   constructor(private _firebaseService: FirebaseService){
 
@@ -25,6 +27,15 @@ export class AppComponent implements OnInit{
       this.categories = categories;
     });
 
+  }
+
+  changeState(state, key){
+    console.log('changing state to : '+state)
+    if(key){
+      console.log('changing key to : ' + key)
+      this.activeKey = key;
+    }
+    this.appState = state;
   }
 
 }

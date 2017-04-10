@@ -15,6 +15,33 @@
   </div>
 </div>
 
+<div *ngIf="appState == 'extand'">
+  <div class="row">
+    <div class="large-12 columns">
+      <button (click)="changeState('default')" class="button alert">Go back</button>
+    </div>
+  </div>
+
+
+  <div *ngFor="let business of business">
+    <div *ngIf="business.$key == activeKey">
+      <div class="row">
+        <div class="large-5 columns large-offset-1">
+            <h3>{{business.company}}</h3>
+            <p>Category: {{business.category}}</p>
+
+        </div>
+
+        <div class="large-5 columns large-offset-1">
+          <h3>Contact Info</h3>
+          <p>Email: {{business.email}}</p>
+          <p>Phone: {{business.phone}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="large-12 columns">
     <div *ngIf="business">
@@ -35,7 +62,7 @@
             <td>{{business.category}}</td>
             <td>{{business.phone}}</td>
             <td>
-              <button class="button">More</button>
+              <button (click)="changeState('extand', business.$key)" class="button">More</button>
               <button class="button secondary">Edit</button>
               <button class="button alert">Delete</button>
             </td>
