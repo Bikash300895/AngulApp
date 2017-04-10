@@ -68,7 +68,6 @@ export class AppComponent implements OnInit{
     }
 
     this._firebaseService.addBusiness(newBusiness);
-
     this.changeState('default', null);
   }
 
