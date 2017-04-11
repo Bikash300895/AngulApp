@@ -5,10 +5,11 @@ import { HttpModule } from '@angular/http';
 import {MaterialModule, MdDialog, MdDialogRef} from '@angular/material';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {DialougeComponent} from "./coponent/dialouge_result";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, DialougeComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +19,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DialougeComponent]
 })
 export class AppModule { }
