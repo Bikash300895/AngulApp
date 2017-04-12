@@ -36,7 +36,7 @@ export class AppComponent {
 
     {
       name: 'company four',
-      lat:  53.678418,
+      lat:  52.698418,
       lng: 7.809007,
       draggable: true
     },
@@ -48,7 +48,13 @@ export class AppComponent {
   }
 
   mapClicked($event){
-    console.log('map clicked');
+    var newMarker: marker = {
+      name: 'Untitled',
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: false
+    }
+    this.markers.push(newMarker);
   }
 
   clickedMarker(m: marker,i: number){
@@ -56,7 +62,7 @@ export class AppComponent {
   }
 
   markerDraggedEnd(m, $event){
-    console.log('Marker clicked: '+m.name);
+    console.log('Marker dragged: '+m.name);
   }
 }
 
