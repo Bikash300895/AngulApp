@@ -1,6 +1,6 @@
 
 export class Init{
-  load(){
+  public load(){
     if(localStorage.getItem('markers')===null || localStorage.getItem('markers')===undefined){
       console.log('No markers available. Creating');
 

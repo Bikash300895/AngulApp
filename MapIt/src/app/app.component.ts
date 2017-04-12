@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import {MarkerService} from "./services/markers.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [MarkerService]
 })
 export class AppComponent {
   title = 'Map it';
@@ -12,39 +14,10 @@ export class AppComponent {
   lat: number = 51.678418;
   lng: number = 7.809007;
 
-  markers: marker[] = [
-    {
-      name: 'company one',
-      lat:  51.678418,
-      lng: 7.809007,
-      draggable: true
-    },
+  markers: marker[];
 
-    {
-      name: 'company two',
-      lat:  51.678418,
-      lng: 9.809007,
-      draggable: true
-    },
-
-    {
-      name: 'company three',
-      lat:  51.678418,
-      lng: 8.809007,
-      draggable: true
-    },
-
-    {
-      name: 'company four',
-      lat:  52.698418,
-      lng: 7.809007,
-      draggable: true
-    },
-
-  ]
-
-  constructor(){
-
+  constructor(private _markerService: MarkerService){
+    this.markers = this._markerService.getMarkers();
   }
 
   mapClicked($event){

@@ -3,15 +3,61 @@ import {Init} from "../init-markers";
 
 
 @Injectable()
-export class MarkerService extends Init{
+export class MarkerService{
   constructor(){
-    super();
-    console.log('Marker service initilized');
     this.load();
   }
 
+
   getMarkers(){
     var markers = JSON.parse(localStorage.getItem('markers'));
+    console.log('markers', markers);
     return markers;
+  }
+
+  getDefaults(){
+    var markers = [
+      {
+        name: 'company one',
+        lat: 51.678418,
+        lng: 7.809007,
+        draggable: true
+      },
+
+      {
+        name: 'company two',
+        lat: 51.678418,
+        lng: 9.809007,
+        draggable: true
+      },
+
+      {
+        name: 'company three',
+        lat: 51.678418,
+        lng: 8.809007,
+        draggable: true
+      },
+
+      {
+        name: 'company four',
+        lat: 52.698418,
+        lng: 7.809007,
+        draggable: true
+      },
+
+    ]
+
+    return markers;
+  }
+
+  load() {
+    if (localStorage.getItem('markers') === null || localStorage.getItem('markers') === undefined) {
+      console.log('No markers available. Creating');
+      localStorage.setItem('markers', JSON.stringify(this.getDefaults()));
+    }
+
+    else {
+      console.log('Loading markers');
+    }
   }
 }
