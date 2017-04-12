@@ -62,7 +62,17 @@ export class AppComponent {
   }
 
   markerDraggedEnd(m, $event){
-    console.log('Marker dragged: '+m.name);
+    console.log('Marker dragged: ', m, event);
+
+    var updatedMarker = {
+      name: m.name,
+      lat: parseFloat(m.lat),
+      lan: parseFloat(m.lan),
+      draggable: false
+    }
+
+    var newLat = $event.coords.lat;
+    var newLng = $event.coords.lng;
   }
 }
 
