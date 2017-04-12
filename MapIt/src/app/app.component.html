@@ -2,6 +2,21 @@
   {{title}}
 </h1>
 
-<sebm-google-map [latitude]="lat" [longitude]="lng">
-  <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+
+  <sebm-google-map-marker
+    *ngFor="let m of markers; let i = index"
+    (markerClick)="clickedMarker(m,i)"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [markerDraggable]="m.draggable"
+    (dragEnd)="markerDraggedEnd(m, $event)"
+  >
+    <sebm-google-map-info-window>
+      <strong>
+        {{m.name}}
+      </strong>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+
 </sebm-google-map>
