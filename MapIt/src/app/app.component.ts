@@ -28,6 +28,7 @@ export class AppComponent {
       draggable: false
     }
     this.markers.push(newMarker);
+    this._markerService.addMarker(newMarker);
   }
 
   clickedMarker(m: marker,i: number){

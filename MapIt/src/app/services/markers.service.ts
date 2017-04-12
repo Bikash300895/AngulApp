@@ -8,6 +8,11 @@ export class MarkerService{
     this.load();
   }
 
+  addMarker(newMarker){
+    var markers = this.getMarkers();
+    markers.push(newMarker);
+    localStorage.setItem('markers', JSON.stringify(markers));
+  }
 
   getMarkers(){
     var markers = JSON.parse(localStorage.getItem('markers'));
