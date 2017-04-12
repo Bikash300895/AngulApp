@@ -14,6 +14,19 @@ export class MarkerService{
     localStorage.setItem('markers', JSON.stringify(markers));
   }
 
+  updateMarker(marker, newLat, newLng){
+    var markers = this.getMarkers();
+    for(var i=0; i<markers.length; i++){
+      console.log(newLat, newLng);
+      if(markers[i].lat == marker.lat && markers[i].lng==marker.lng){
+        console.log('got it');
+        markers[i].lat = newLat;
+        markers[i].lan = newLng;
+      }
+    }
+    localStorage.setItem('markers', JSON.stringify(markers));
+  }
+
   getMarkers(){
     var markers = JSON.parse(localStorage.getItem('markers'));
     console.log('markers', markers);
