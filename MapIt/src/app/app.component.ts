@@ -46,6 +46,18 @@ export class AppComponent {
   constructor(){
 
   }
+
+  mapClicked($event){
+    console.log('map clicked');
+  }
+
+  clickedMarker(m: marker,i: number){
+    console.log('Clicked marker :' + m.name+ ' At index : '+ i);
+  }
+
+  markerDraggedEnd(m, $event){
+    console.log('Marker clicked: '+m.name);
+  }
 }
 
 interface marker{
